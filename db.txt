@@ -1,0 +1,5 @@
+- User
+npx sequelize-cli model:generate --name user --attributes email:string,firstName:string,lastName:string,password:string
+
+- Product
+npx sequelize-cli model:generate --name product --attributes kodeProduk:string,namaProduk:string,qty:integer,imageProduk:string
