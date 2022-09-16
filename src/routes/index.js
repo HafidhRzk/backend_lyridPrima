@@ -3,7 +3,6 @@ const router = express.Router();
 
 const { register, login, checkAuth } = require('../controllers/auth');
 const { auth } = require('../middlewares/auth');
-const { uploadFile } = require('../middlewares/uploadFile');
 
 const { 
     addUser,
@@ -12,24 +11,20 @@ const {
     deleteUser
 } = require('../controllers/user')
 
-const { 
-    addProduct,
-    getProducts,
-    updateProduct,
-    deleteProduct,
-    getProduct
-} = require('../controllers/product')
+const {
+    getTransactionById, 
+    getTransactionByDate, 
+    addTransaction,
+} = require('../controllers/transaction')
 
 router.post('/user', addUser);
 router.get('/users', getUsers);
 router.patch('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
 
-router.post('/product', auth, uploadFile('image'), addProduct);
-router.get('/products', auth, getProducts);
-router.get('/product/:id', auth, getProduct);
-router.patch('/product/:id', auth, uploadFile('image'), updateProduct);
-router.delete('/product/:id', auth, deleteProduct);
+router.get('/transactionid/:id', auth, getTransactionById)
+router.get('/transactiondate/:id', auth, getTransactionByDate)
+router.post('/transaction', auth, addTransaction)
 
 router.post('/register', register);
 router.post('/login', login);

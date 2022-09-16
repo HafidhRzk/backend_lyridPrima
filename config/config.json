@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "lyrid_prima",
+    "database": "crud_basic",
     "host": "localhost",
     "dialect": "mysql"
   },
